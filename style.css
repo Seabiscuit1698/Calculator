@@ -1,0 +1,12 @@
+#numBtns {
+    display: grid;
+    grid-template-rows: repeat(3, 300px);
+    grid-template-columns: repeat(3, 300px);
+}
+#Btns {
+    width: 30vw;
+    height: 50vw;
+    margin-top: 40vw;
+    margin-left: 35vw;
+    background-color: black;
+}

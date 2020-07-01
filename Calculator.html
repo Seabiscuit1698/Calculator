@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #Btns {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 330px 1fr;
+                grid-template-areas:
+                    "numBtns opBtns"
+                    "zeroBtn clearBtn";
+                width: 30vw;
+                height: 50vw;
+                margin-top: 20px;
+                margin-left: 35vw;
+            }
+            #numBtns {
+                display: grid;
+                grid-template-rows: repeat(3, 100px);
+                grid-template-columns: repeat(3, 100px);
+                grid-column-gap: 10px;
+                grid-row-gap: 10px;
+                grid-area: numBtns;
+            }
+            #opBtns {
+                display: grid;
+                grid-template-columns: 100px 100px;
+                grid-template-rows: 100px 100px 210px;
+                grid-column-gap: 10px;
+                grid-row-gap: 10px;
+                margin-left: 10px;
+                grid-area: opBtns;
+            }
+            .opBtn {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 10px;
+            }
+            #num0Btn {
+                width: 320px;
+                height: 100px;
+                grid-area: zeroBtn;
+            }
+            #clearBtn {
+                grid-area: clearBtn;
+                margin-left: 10px;
+                height: 100px;
+            }
+            #equalsBtn {
+                width: 210px;
+                height: 100px;
+            }
+            #screen {
+                background-color: darkgreen;
+                color: white;
+                width: 34vw;
+                height: 150px;
+                margin-top: 5vw;
+                margin-left: 35vw;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="script.js"></script>
+        <div id="screen"></div>
+        <div id="Btns">
+            <div id="numBtns">
+                <button onclick="setNumber(1)" class="numBtn" id="num1Btn">1</button>
+                <button onclick="setNumber(2)" class="numBtn" id="num2Btn">2</button>
+                <button onclick="setNumber(3)" class="numBtn" id="num3Btn">3</button>
+                <button onclick="setNumber(4)" class="numBtn" id="num4Btn">4</button>
+                <button onclick="setNumber(5)" class="numBtn" id="num5Btn">5</button>
+                <button onclick="setNumber(6)" class="numBtn" id="num6Btn">6</button>
+                <button onclick="setNumber(7)" class="numBtn" id="num7Btn">7</button>
+                <button onclick="setNumber(8)" class="numBtn" id="num8Btn">8</button>
+                <button onclick="setNumber(9)" class="numBtn" id="num9Btn">9</button>
+            </div>
+            <div id="zeroBtn">
+                <button onclick="setNumber(0)" class="numBtn" id="num0Btn">0</button>
+            </div>
+            <div id="opBtns">
+                <button onclick="setOp('+')" class="opBtn" id="addBtn">+</button>
+                <button onclick="setOp('-')" class="opBtn" id="subBtn">-</button>
+                <button onclick="setOp('*')" class="opBtn" id="multBtn">*</button>
+                <button onclick="setOp('/')" class="opBtn" id="divBtn">/</button>
+                <button onclick="operate()" id="equalsBtn">=</button>
+            </div>
+            <button id="clearBtn">Clear</button>
+        </div>
+    </body>
+</html>
