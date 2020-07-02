@@ -2,6 +2,15 @@
 <html>
     <head>
         <style>
+            body {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                grid-template-areas:
+                    "text calc"
+            }
+            #calculator {
+                grid-area: calc;
+            }
             #Btns {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -12,7 +21,7 @@
                 width: 30vw;
                 height: 50vw;
                 margin-top: 20px;
-                margin-left: 35vw;
+                margin-left: 7vw;
             }
             #numBtns {
                 display: grid;
@@ -35,6 +44,8 @@
                 width: 100px;
                 height: 100px;
                 margin-bottom: 10px;
+                font-size: large;
+                background-color: aliceblue;
             }
             #num0Btn {
                 width: 320px;
@@ -45,48 +56,85 @@
                 grid-area: clearBtn;
                 margin-left: 10px;
                 height: 100px;
+                width: 210px;
+                background-color: lightsalmon;
             }
             #equalsBtn {
                 width: 210px;
                 height: 100px;
+                background-color: lightgreen;
             }
             #screen {
                 background-color: darkgreen;
                 color: white;
-                width: 34vw;
+                width: 540px;
                 height: 150px;
                 margin-top: 5vw;
-                margin-left: 35vw;
+                margin-left: 7vw;
                 border-radius: 5px;
+                font-size: xx-large;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+            }
+            .Btn {
+                font-size: large;
+            }
+            #para {
+                margin-top: 5px;
+                margin-left: 5px;
+            }
+            #history {
+                margin-top: 65px;
+                margin-left: 5px;
+            }
+            #description {
+                margin-left: 5vw;
+                width: 20vw;
+                height: 20vw;
+                margin-top: 5vw;
+                background-color: rgb(203, 147, 255);
+                grid-area: text;
             }
         </style>
     </head>
     <body>
-        <script src="script.js"></script>
-        <div id="screen"></div>
-        <div id="Btns">
-            <div id="numBtns">
-                <button onclick="setNumber(1)" class="numBtn" id="num1Btn">1</button>
-                <button onclick="setNumber(2)" class="numBtn" id="num2Btn">2</button>
-                <button onclick="setNumber(3)" class="numBtn" id="num3Btn">3</button>
-                <button onclick="setNumber(4)" class="numBtn" id="num4Btn">4</button>
-                <button onclick="setNumber(5)" class="numBtn" id="num5Btn">5</button>
-                <button onclick="setNumber(6)" class="numBtn" id="num6Btn">6</button>
-                <button onclick="setNumber(7)" class="numBtn" id="num7Btn">7</button>
-                <button onclick="setNumber(8)" class="numBtn" id="num8Btn">8</button>
-                <button onclick="setNumber(9)" class="numBtn" id="num9Btn">9</button>
-            </div>
-            <div id="zeroBtn">
-                <button onclick="setNumber(0)" class="numBtn" id="num0Btn">0</button>
-            </div>
-            <div id="opBtns">
-                <button onclick="setOp('+')" class="opBtn" id="addBtn">+</button>
-                <button onclick="setOp('-')" class="opBtn" id="subBtn">-</button>
-                <button onclick="setOp('*')" class="opBtn" id="multBtn">*</button>
-                <button onclick="setOp('/')" class="opBtn" id="divBtn">/</button>
-                <button onclick="operate()" id="equalsBtn">=</button>
-            </div>
-            <button id="clearBtn">Clear</button>
+        <div id="description">
+            <h1 style="margin-left: 5px">Biscuit's Basic Calculator</h1>
+            <ul>
+                <li>Currently does not support negative numbers</li>
+                <li>Can't accept more than two numbers</li>
+                <li>Does not support decimals</li>
+                <li>I am working on adding these features!</li>
+            </ul>
         </div>
+        <div id="calculator">
+            <div id="screen"></div>
+            <div id="Btns">
+                <div id="numBtns">
+                    <button onclick="setNumber(1)" class="Btn" id="num1Btn">1</button>
+                    <button onclick="setNumber(2)" class="Btn" id="num2Btn">2</button>
+                    <button onclick="setNumber(3)" class="Btn" id="num3Btn">3</button>
+                    <button onclick="setNumber(4)" class="Btn" id="num4Btn">4</button>
+                    <button onclick="setNumber(5)" class="Btn" id="num5Btn">5</button>
+                    <button onclick="setNumber(6)" class="Btn" id="num6Btn">6</button>
+                    <button onclick="setNumber(7)" class="Btn" id="num7Btn">7</button>
+                    <button onclick="setNumber(8)" class="Btn" id="num8Btn">8</button>
+                    <button onclick="setNumber(9)" class="Btn" id="num9Btn">9</button>
+                </div>
+                <div id="zeroBtn">
+                    <button onclick="setNumber(0)" class="Btn" id="num0Btn">0</button>
+                </div>
+                <div id="opBtns">
+                    <button onclick="setOp('+')" class="opBtn" id="addBtn">+</button>
+                    <button onclick="setOp('-')" class="opBtn" id="subBtn">-</button>
+                    <button onclick="setOp('*')" class="opBtn" id="multBtn">*</button>
+                    <button onclick="setOp('/')" class="opBtn" id="divBtn">/</button>
+                    <button onclick="operate()" class="Btn" id="equalsBtn">=</button>
+                </div>
+                <button onclick="clearCalc()" id="clearBtn" class="Btn">Clear</button>
+            </div>
+        </div>
+        <script src="script.js"></script>
     </body>
 </html>

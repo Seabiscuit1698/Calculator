@@ -15,25 +15,49 @@ const divBtn = document.querySelector('#divBtn');
 const eqBtn = document.querySelector('#equalsBtn');
 const clearBtn = document.querySelector('#clearBtn');
 const screen = document.querySelector('#screen');
-const para = document.createElement('p');
 
-para.textContent = '0';
-screen.appendChild(para);
+let para = document.createElement('p');
+para.setAttribute('id', 'para');
 
 let num1;
 let num2;
 let op;
-let result = 0;
+let displayValue = '';
+let result;
+
+screen.appendChild(para);
 
 function setNumber(input) {
-    if (isNaN(num1) && typeof(op) == 'undefined') {
-        num1 += input.toString();
-    } else if (isNaN(num2) && typeof(op) != 'undefined') {
-        num2 += input.toString;
+    if (typeof(num1) != 'undefined') {
+        setNum1(input);
+    } else {
+        setNum2(input);
     }
 }
 
+function setNum1(input) {
+    let currentNum = input.toString();
+    if (displayValue == 0) {
+        displayValue = currentNum;
+    } else {
+        displayValue += currentNum;
+    }
+    para.textContent = displayValue;
+}
+
+function setNum2(input) {
+    let currentNum = input.toString();
+    if (displayValue == 0) {
+        displayValue = currentNum;
+    } else {
+        displayValue += currentNum;
+    }
+    para.textContent = displayValue;
+}
+
 function setOp(input) {
+    num1 = displayValue;
+    displayValue = 0;
     if (input == '+') {
         op = '+';
     } else if (input == '-') {
@@ -45,23 +69,28 @@ function setOp(input) {
     } else {
         return 'Something went wrong.';
     }
+    para.textContent += ' ' + op;
 }
 
 function operate() {
+    num2 = displayValue;
+    console.log(`${num1} ${op} ${num2}`);
     if (op == '+') {
-        return result = +num1 + +num2;
+        result = add(num1, num2);
     } else if (op == '-') {
-        return result = num1 - num2;
+        result = subtract(num1, num2);
     } else if (op == '*') {
-        return result = num1 * num2;
+        result = multiply(num1, num2);
     } else if (op == '/') {
-        return result = num1 / num2;
+        result = divide(num1, num2);
+    } else {
+        return 'Invalid operation.';
     }
     para.textContent = result;
 }
 
 function add(num1, num2) {
-    return num1 + num2;
+    return +num1 + +num2;
 }
 function subtract(num1, num2) {
     return num1 - num2;
@@ -70,5 +99,17 @@ function multiply(num1, num2) {
     return num1 * num2;
 }
 function divide(num1, num2) {
-    return num1 / num2;
+    if (num2 == 0) {
+        return 'Stop that, you know you can\'t divide by zero';
+    } else {
+        return num1 / num2;
+    }
+}
+
+function clearCalc() {
+    num1 = 0;
+    num2 = 0;
+    op = 'undefined';
+    displayValue = 0;
+    para.textContent = displayValue;
 }
