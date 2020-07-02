@@ -60,9 +60,14 @@
                 background-color: lightsalmon;
             }
             #equalsBtn {
-                width: 210px;
+                width: 100px;
                 height: 100px;
                 background-color: lightgreen;
+            }
+            #backBtn {
+                width: 100px;
+                height: 100px;
+                background-color: rgb(255, 113, 113);
             }
             #screen {
                 background-color: darkgreen;
@@ -131,6 +136,7 @@
                     <button onclick="setOp('*')" class="opBtn" id="multBtn">*</button>
                     <button onclick="setOp('/')" class="opBtn" id="divBtn">/</button>
                     <button onclick="operate()" class="Btn" id="equalsBtn">=</button>
+                    <button onclick="backSpace()" class="Btn" id="backBtn">Backspace</button>
                 </div>
                 <button onclick="clearCalc()" id="clearBtn" class="Btn">Clear</button>
             </div>

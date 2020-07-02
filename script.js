@@ -14,6 +14,7 @@ const multBtn = document.querySelector('#multBtn');
 const divBtn = document.querySelector('#divBtn');
 const eqBtn = document.querySelector('#equalsBtn');
 const clearBtn = document.querySelector('#clearBtn');
+const backBtn = document.querySelector('#backBtn');
 const screen = document.querySelector('#screen');
 
 let para = document.createElement('p');
@@ -28,24 +29,6 @@ let result;
 screen.appendChild(para);
 
 function setNumber(input) {
-    if (typeof(num1) != 'undefined') {
-        setNum1(input);
-    } else {
-        setNum2(input);
-    }
-}
-
-function setNum1(input) {
-    let currentNum = input.toString();
-    if (displayValue == 0) {
-        displayValue = currentNum;
-    } else {
-        displayValue += currentNum;
-    }
-    para.textContent = displayValue;
-}
-
-function setNum2(input) {
     let currentNum = input.toString();
     if (displayValue == 0) {
         displayValue = currentNum;
@@ -111,5 +94,10 @@ function clearCalc() {
     num2 = 0;
     op = 'undefined';
     displayValue = 0;
+    para.textContent = displayValue;
+}
+
+function backSpace() {
+    displayValue = displayValue.slice(0, -1);
     para.textContent = displayValue;
 }
