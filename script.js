@@ -57,7 +57,6 @@ function setOp(input) {
 
 function operate() {
     num2 = displayValue;
-    console.log(`${num1} ${op} ${num2}`);
     if (op == '+') {
         result = add(num1, num2);
     } else if (op == '-') {
